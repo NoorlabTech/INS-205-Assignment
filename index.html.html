@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murtala Aisha Yusuf</title>
+    <style>
+        /* General styling for the body */
+        body{
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f1f4f5;
+            color: #7645c0;
+            line-height: normal;
+        }
+        /* Styling for the hero section */
+        .hero{
+            background-color: #7645c0;
+            color: #f1f4f5;
+            padding: 50px 20px;
+            text-align: center;
+        }  
+        .hero-text h1{
+            font-size: 2.5em;
+        }
+        /*general styling for the about and contact sections */
+        .about-me, .about-page-info, .contact-info{
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        /*general styling for the headings in the about and contact sections */
+        .about-me h2, .about-page-info h2, .contact-info h2{
+            color: #7645c0;
+        }
+        /*general styling for the paragraphs in the about and contact sections */
+        p{
+            font-size: 1.1em;
+            color: #333;
+        }
+        /* Style for the contact button */
+        button{
+            background-color: #7645c0;
+            color: #f1f4f5;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- The hero section introduces the webpage and its purpose. -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>My Personal Webpage</h1>
+            <p>Welcome to my personal webpage! I'm Murtala Aisha Yusuf, a student at the University of Jos.</p>
+        </div>
+    </section>
+    <!--this is the about section and it includes information about me the developer of the page-->
+    <section class="about">
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>I'm Murtala Aisha Yusuf. I am from the Faculty of Computing, department of Computer Science. My matriculation number is UJ/2024/NS/0114 currently in 200lvl.</p>
+        </div>
+    </section>
+    <!-- The following section is about the page itself, explaining its purpose and context. -->
+    <section class="about-page">
+        <div class="about-page-info">
+            <h2>About The Page</h2>
+            <p>This webpage is a simple personal project created for my INS 205 assessment. The purpose of the webpage is to demonstrate my understanding of HTML5 structure, including the use of headings, sections, and basic page layout.
+                The page introduces who I am and includes a contact option so users can reach me through email. The task helps me practice building structured web pages using clean and valid HTML code. 
+                The course is specially important because of the kind of importance in the tech world. Even though there are AIs that can create and design websites, this course helps in understanding how the sites and applications are created and also what happens when parts of the codes are tampered with. In a nutshell the course is about application design and development.
+            </p>
+        </div>
+    </section>
+    <section class="contact">
+        <div class="contact-info">
+            <h2>Contact Me</h2>
+            <p>You can use the button below to contact me.</p>
+            <a href="mailto:2024NS0114@unijos.edu.ng">
+                <button id="send-btn">Send Email</button>
+            </a>
+        </div>
+    </section>
+    <script>
+        /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           ------------------------------------------------------- */
+        const matric = "UJ/2024/NS/0114"; // <-- CHANGE THIS TO YOUR MAT. NO.
+
+	/* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */ 
+
+        function hashString(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+            }
+            return hash;
+        }
+
+        // Normalise input
+        const normalised = matric.trim().toUpperCase();
+
+        // Map the hash to a hue value between 0 and 359 degrees
+        const hue = hashString(normalised) % 360;
+
+        // Build an HSL colour: fixed saturation & lightness, varying hue
+        const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+        // Apply the colour to the Send Email button
+        document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+
+</body>
+</html>
